@@ -1,0 +1,106 @@
+﻿Задача 1 (php).
+Дан массив слов:
+$words = [‘red’, ‘green’, ‘blue’, ‘yellow’, ‘orange’];
+ 
+Необходимо:
+1. Сгенерировать массив из 10 миллионов не уникальных строк, каждая из которых является случайной последовательностью данных слов, разделенных пробелами, например
+“orange blue red yellow green”
+Каждая строка должна содержать все пять слов без повторений.
+ 
+2. Из данного массива выбрать все уникальные строки (т.е. удалить дубли), не используя функцию array_unique.
+ 
+Ваше решение должно быть оптимизировано по скорости выполнения.
+ 
+Пример кода. Необходимо реализовать функции render_strings и get_uniques
+function render_strngs(array $words, $count)
+{
+    // your code here
+}
+ 
+function get_uniques(array $strings)
+{
+    // your code here
+}
+ 
+$words = ['red', 'green', 'yellow', 'blue', 'orange'];
+ 
+$t = microtime(true);
+$strings = render_strngs($words, 10000000);
+echo "T = ".(microtime(true) - $t)."\n";
+ 
+$t = microtime(true);
+$uniques = get_uniques($strings);
+echo "T = ".(microtime(true) - $t)."\n";
+print_r($uniques);
+ 
+ 
+Задача 2 (php + MySQL).
+Есть исходный массив строк $docs
+Каждая строка имеет разный размер (от нескольких килобайт до нескольких мегабайт)
+В исходном массиве 10М строк.
+ 
+ 
+Необходимо:
+1. Создать структуру таблицы MySQL для хранения уникальных строк(из массива $docs и последующих обновлений).
+2. Написать функцию на php с использованием SQL, которая будет сохранять любое количество новых строк в данной таблице, не создавая дубли в базе.
+3. Написать функцию, которая проверяет, есть ли заданная строка в таблице.
+ 
+В качестве драйвера к MySQL можете использовать любой удобный вам вариант (mysql, pdo, Laravel query builder, etc).  
+ 
+Ваше решение должно быть оптимизировано по скорости выполнения
+ 
+ 
+Задача 3 (MySQL).
+ 
+В таблице MySQL (InnoDb) хранится 50 миллионов записей логов. Каждая запись имеет проиндексированное время создания (created_at). Новые записи в таблицу добавляются в режиме реального времени, круглосуточно, примерно 100 записей в минуту.
+ 
+Необходимо:
+Удалить из таблицы логов все записи, старше одного месяца.
+В качестве решения задачи пришлите краткое описание вашего подхода и ключевые запросы.
+ 
+ 
+ 
+Задача 4 (Redis).
+База данных пользователей хранится в Redis.
+Для каждого пользователя хранятся следующие поля:
+ 
+Id
+name
+email
+password_hash
+ 
+Необходимо выполнить авторизацию пользователя по email и паролю (для комбинации email, password_hash получить данные пользователя).
+ 
+Необходимо
+Реализовать следующие функции на php:
+/**
+ * Creates new user
+ *
+ * @param array $user_data          User data contains the following fields:
+ *                                      - name
+ *                                      - email
+ *                                      - password_hash
+ *
+ * @return string                   Returns ID of created user
+ *
+ * @throws \UserExistsException     Throws exception if user with this email already exists
+ *
+ */
+function create_user(array $user_data)
+{
+    // your code here
+}
+ 
+/**
+ * Finds user by combination of email and password hash
+ *
+ * @param string $email
+ * @param string $password_hash
+ *
+ * @return string|null                   Returns ID of user or null if user not found
+ */
+function authorize_user($email, $password_hash)
+{
+    // your code here
+}
+
