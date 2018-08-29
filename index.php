@@ -208,9 +208,49 @@ echo "<br>Capital of Russia is - ".$capital["Russia"].". <br>Население 
 
 echo "<br>Столица России - $capital[Russia], Население России = $Population[Russia] млн. человек.";
 */
+/*
 
 //Многомерные массивы!!
+$auto ["bmw"] = array("color" => "White", "year" => "2005", "pr" => "2000");
+$auto ["audi"] = array("color" => "Blue", "year" => "2003", "pr" => "2200");
+$auto ["nissan"] = array("color" => "Black", "year" => "2007", "pr" => "1000");
+$auto ["toyota"] = array("color" => "White", "year" => "2005", "pr" => "7000");
+$auto ["ferrari"] = array("color" => "Red", "year" => "2001", "pr" => "9000");
 
+
+echo "BMW, color -".$auto["bmw"]['color']."<br>Ferrari, year -".$auto["ferrari"]["year"];
+//Тестовая задача => Задействовать все перечисленные операции и функции с возможностью выбора машины...
+*/
+
+//----------------------Функции------------------------
+
+
+function square ($a)
+{
+	$result = $a*$a;
+	echo "Квадрат $a равен - $result";
+}
+
+$num = "12";
+
+square($num);
+
+//Функция вывода ссылки
+function mylink ()
+{
+	echo "<a href='https://mail.ipcom.ua:8443'><br>Mail Ipcom</br></a>";
+}
+
+mylink();
+
+
+//Функция для вывода ссылки с параметрами $link, $linkTitle
+function linkWithParam($link, $linkTitle)
+{
+	echo "<a href='$link'><br>$linkTitle</br></a>";
+}
+
+linkWithParam('http://fbi.gov','Call FBI');
 
 
 
